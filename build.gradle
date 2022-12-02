@@ -1,0 +1,41 @@
+plugins {
+    id 'java'
+    id 'war'
+}
+
+group 'org.example'
+version '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+
+    compileOnly 'javax.servlet:javax.servlet-api:4.0.1'
+    implementation 'junit:junit:4.13.1'
+    implementation 'com.google.guava:guava:31.1-jre'
+
+    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.8.1'
+    testRuntimeOnly 'javax.servlet:javax.servlet-api:4.0.1'
+    testImplementation 'javax.servlet:javax.servlet-api:4.0.1'
+    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.8.1'
+    testImplementation 'org.mockito:mockito-core:4.8.1'
+}
+
+test {
+    useJUnitPlatform()
+}
+
+war{
+    archiveName 'time.war'
+}
+jar {
+    manifest {
+        attributes 'Main-Class':'com.company.servlet.App.java'
+    }
+    from {
+        exclude '**/module-info.class'
+        configurations.compileClasspath.collect { it.isDirectory() ? it : zipTree(it) }
+    }
+}
