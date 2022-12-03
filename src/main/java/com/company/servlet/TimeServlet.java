@@ -9,7 +9,7 @@ import java.time.OffsetDateTime;
 import java.time.ZoneId;
 import java.time.format.DateTimeFormatter;
 
-@WebServlet(value = "")
+@WebServlet(value = "/time")
 public class TimeServlet extends HttpServlet {
     private final static DateTimeFormatter FORMAT = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss 'UTC'x");
     String initTime;

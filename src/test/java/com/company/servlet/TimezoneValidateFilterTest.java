@@ -48,7 +48,7 @@ class TimezoneValidateFilterTest {
         filter.doFilter(httpServletRequest, httpServletResponse, filterChain);
 
         verify(httpServletResponse).setStatus(400);
-        verify(printWriter).write("\"Error 400\": \"Invalid timezone\"");
+        verify(printWriter).write("{\"Error 400\": \"Invalid timezone\"}");
         verify(printWriter, times(1)).close();
     }
 

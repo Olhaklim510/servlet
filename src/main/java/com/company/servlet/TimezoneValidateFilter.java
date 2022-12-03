@@ -24,7 +24,7 @@ public class TimezoneValidateFilter extends HttpFilter {
             resp.setStatus(400);
 
             resp.setContentType("application/json");
-            resp.getWriter().write("Error 400: Invalid timezone");
+            resp.getWriter().write("{\"Error 400\": \"Invalid timezone\"}");
             resp.getWriter().close();
         }
     }

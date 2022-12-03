@@ -28,7 +28,7 @@ test {
 }
 
 war{
-    archiveName 'time.war'
+    archiveName 'ROOT.war'
 }
 jar {
     manifest {
